@@ -1,9 +1,15 @@
 package teksystems.porter.entity;
 
+import lombok.*;
 import teksystems.porter.entity.User;
 
 import javax.persistence.*;
 
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "user_roles")
 public class UserRole {
@@ -16,20 +22,7 @@ public class UserRole {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+    @Column(name="role", nullable = false)
+    private String userRole;
 
 }

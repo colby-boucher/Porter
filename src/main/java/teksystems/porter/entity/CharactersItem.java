@@ -1,7 +1,14 @@
 package teksystems.porter.entity;
 
+import lombok.*;
+
 import javax.persistence.*;
 
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "characters_items")
 public class CharactersItem {
@@ -21,36 +28,7 @@ public class CharactersItem {
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Item getItem() {
-        return item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
-    }
-
-    public Character getCharacter() {
-        return character;
-    }
-
-    public void setCharacter(Character character) {
-        this.character = character;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
+    @Column(name ="worn", nullable = false)
+    private Boolean worn;
 
 }

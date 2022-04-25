@@ -1,7 +1,15 @@
 package teksystems.porter.entity;
 
-import javax.persistence.*;
+import lombok.*;
 
+import javax.persistence.*;
+import java.util.Date;
+
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "users", indexes = {
         @Index(name = "email", columnList = "email", unique = true)
@@ -18,28 +26,10 @@ public class User {
     @Column(name = "password", nullable = false, length = 20)
     private String password;
 
-    public Integer getId() {
-        return id;
-    }
+    @Column(name = "create_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createDate = new Date();
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
 }
