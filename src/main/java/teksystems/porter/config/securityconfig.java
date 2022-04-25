@@ -31,10 +31,10 @@ public class securityconfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 // this is the URL of the login page
-                .loginPage("/login/login")
+                .loginPage("/login/loginForm")
                 // this is the URL where the login page will submit
                 .loginProcessingUrl("/login/loginSubmit")
-                .defaultSuccessUrl("/index")
+                .defaultSuccessUrl("/user/characters")
                 .and()
                 .logout()
                 .invalidateHttpSession(true)

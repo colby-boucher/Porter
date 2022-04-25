@@ -1,7 +1,13 @@
 package teksystems.porter.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 import teksystems.porter.entity.Character;
+import teksystems.porter.entity.User;
 
-public interface CharacterDao extends JpaRepository<Character, Integer> {
+import java.util.List;
+
+public interface CharacterDao extends JpaRepository<Character, Long> {
+
+    public List<Character>findCharactersByUserEquals(@Param("user") User user);
 }
