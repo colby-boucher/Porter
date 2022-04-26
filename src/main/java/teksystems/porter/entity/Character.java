@@ -3,7 +3,6 @@ package teksystems.porter.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -32,7 +31,7 @@ public class Character {
 
     @ToString.Exclude
     @OneToMany(mappedBy = "character")
-    private Set<CharactersItem> charactersItems = new LinkedHashSet<>();
+    private Set<CharacterItems> charactersItems = new LinkedHashSet<>();
 
 
 

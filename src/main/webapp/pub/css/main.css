@@ -110,6 +110,13 @@ textarea {
   line-height: 1;
 }
 
+.smallerTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 2em;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
 .characterList{
   text-align: left;
 }

@@ -9,5 +9,7 @@ import java.util.List;
 
 public interface CharacterDao extends JpaRepository<Character, Long> {
 
-    public List<Character>findCharactersByUserEquals(@Param("user") User user);
+    Character findCharacterById(@Param("id") Integer id);
+
+    List<Character>findCharactersByUserEquals(@Param("user") User user);
 }

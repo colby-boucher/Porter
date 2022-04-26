@@ -1,7 +1,6 @@
 package teksystems.porter.entity;
 
 import lombok.*;
-import teksystems.porter.entity.CharactersItem;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -32,7 +31,7 @@ public class Item {
 
     @ToString.Exclude
     @OneToMany(mappedBy = "item")
-    private Set<CharactersItem> charactersItems = new LinkedHashSet<>();
+    private Set<CharacterItems> charactersItems = new LinkedHashSet<>();
 
 
 

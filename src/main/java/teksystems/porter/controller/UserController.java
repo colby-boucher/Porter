@@ -63,7 +63,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/characterSubmit", method = { RequestMethod.POST, RequestMethod.GET})
-    public ModelAndView registerSubmit(@Valid CharacterFormBean form, BindingResult bindingResult) throws Exception {
+    public ModelAndView characterSubmit(@Valid CharacterFormBean form, BindingResult bindingResult) throws Exception {
         ModelAndView response = new ModelAndView();
 
         response.addObject("form", form);
@@ -91,12 +91,9 @@ public class UserController {
 
         log.info(form.toString());
 
-        response.setViewName("/user/characters");
+        response.setViewName("redirect:/user/characters");
 
         return response;
-
     }
-
-
 
 }
