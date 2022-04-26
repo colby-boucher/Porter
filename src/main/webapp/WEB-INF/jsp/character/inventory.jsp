@@ -27,6 +27,10 @@
         </tbody>
     </table>
 
+    <nav>
+        <a href="/character/${character.id}/delete">DELETE CHARACTER</a>
+    </nav>
+
 </div>
 
 <jsp:include page="../include/footer.jsp"/>

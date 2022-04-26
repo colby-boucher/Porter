@@ -91,9 +91,11 @@ public class UserController {
 
         log.info(form.toString());
 
-        response.setViewName("redirect:/user/characters");
+        response.setViewName(":redirect/user/characters");
 
         return response;
     }
+
+
 
 }

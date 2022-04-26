@@ -47,7 +47,6 @@ public class CharacterController {
 
         Character character = characterDao.findCharacterById(id);
 
-        //List<CharacterItems> inventory = charactersItemDao.findCharacterItemsByCharacterEquals(character);
 
         List<Map<String,Object>> inventory = charactersItemDao.join(id);
 
@@ -57,7 +56,20 @@ public class CharacterController {
 
         response.addObject("inventory", inventory);
 
-        //response.addObject("inventory", inventory);
+
+
+        return response;
+    }
+
+    @RequestMapping(value = "/character/{id}/delete", method = {RequestMethod.GET, RequestMethod.DELETE})
+    public ModelAndView deleteCharacter(@PathVariable Integer id) throws Exception{
+        ModelAndView response = new ModelAndView();
+
+        Character character = characterDao.findCharacterById(id);
+
+        characterDao.delete(character);
+
+        response.setViewName(":redirect/user/characters");
 
         return response;
     }
