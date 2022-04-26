@@ -4,9 +4,15 @@
 
 <div class="maincontainer">
     <h1 class="title">Characters</h1>
-    <c:forEach items="${characters}" var="character">
-        <p>${character.name}</p>
-    </c:forEach>
+    <div class="characterList">
+        <ul>
+            <c:forEach items="${characters}" var="character">
+                <li>${character.name}</li>
+                <button type="button"> Inventory</button>
+                <button type="button"> Delete</button>
+            </c:forEach>
+        </ul>
+    </div>
 
     <p>Your email: ${email}</p>
 

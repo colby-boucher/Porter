@@ -6,7 +6,7 @@
 
     <form action="/user/characterSubmit" method="POST">
         <input type="hidden" name="id">
-        <input type="hidden" name="userId" value="userId">
+        <input type="hidden" name="userId" value=${userId}>
         <div>
             <input type="text" name="name" placeholder="Character Name"/>
             <br>

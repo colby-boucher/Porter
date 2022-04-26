@@ -110,6 +110,10 @@ textarea {
   line-height: 1;
 }
 
+.characterList{
+  text-align: left;
+}
+
 .subtitle {
   margin-top: 0px;
 }
