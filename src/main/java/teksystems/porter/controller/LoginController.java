@@ -47,48 +47,27 @@ public class LoginController {
         return response;
     }
 
-    /**
-     * when the user submits the form it will call into this method
-     * 1) the action on the form itself must match the value here in the request mapping
-     * 2) method on the form must match the method here
-     * otherwise spring MVC will not be able to respond to the request
-     * <p>
-     * In this case the @PostMapping and @RequestMapping are the same with the @PostMapping
-     * being a shorthand.   This works the same for @GetMapping
-     * <p>
-     * This method now becomes a create and an edit based on if the id is populated in
-     * the RegisterFormBean.
-     */
-    //@PostMapping( "/user/registerSubmit")
+
     @RequestMapping(value = "/login/registerSubmit", method = { RequestMethod.POST, RequestMethod.GET})
     public ModelAndView registerSubmit(@Valid RegisterFormBean form, BindingResult bindingResult) throws Exception {
         ModelAndView response = new ModelAndView();
 
         if (bindingResult.hasErrors()) {
 
-
             log.info("Errors are happening! can't show you them directly " +
                             "because casting them was problematic");
 
-
-            // add the form back to the model so we can fill up the input fields
-            // so the user can correct the input and does not have type it all again
             response.addObject("form", form);
 
-            // add the error list to the model
             response.addObject("bindingResult", bindingResult);
 
             log.info(String.valueOf(bindingResult.getAllErrors()));
 
-            // because there is 1 or more error we do not want to process the logic below
-            // that will create a new user in the database.   We want to show the registerForm.jsp
             response.setViewName("login/registerForm");
             return response;
         }
 
-
         User user = new User();
-
 
         user.setEmail(form.getEmail());
         user.setCreateDate(new Date());
@@ -98,7 +77,6 @@ public class LoginController {
 
         userDao.save(user);
 
-        // create and save the user role object
         UserRole userRole = new UserRole();
         userRole.setUser(user);
         userRole.setUserRole("USER");
