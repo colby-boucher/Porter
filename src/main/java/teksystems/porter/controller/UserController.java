@@ -32,15 +32,25 @@ public class UserController {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/characters");
         User user = securityServices.getSecureUser();
+        String email = user.getEmail();
 
         List<Character> characters = characterDao.findCharactersByUserEquals(user);
 
-        response.addObject(characters);
+        response.addObject("characters", characters);
+        response.addObject("email", email);
 
         return response;
     }
 
+    @RequestMapping(value = "/user/create", method = RequestMethod.GET)
+    public ModelAndView createCharacter() throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("user/createCharacterForm");
+        User user = securityServices.getSecureUser();
+        Integer userId = user.getId();
 
+        return response;
+    }
 
 
 

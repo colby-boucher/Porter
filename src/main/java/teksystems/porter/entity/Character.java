@@ -27,8 +27,8 @@ public class Character {
     @Column(name = "name", nullable = false, length = 25)
     private String name;
 
-    @Column(name = "weight_limit", nullable = false, precision = 10)
-    private BigDecimal weightLimit;
+    @Column(name = "strength", nullable = false)
+    private Integer strength;
 
     @ToString.Exclude
     @OneToMany(mappedBy = "character")

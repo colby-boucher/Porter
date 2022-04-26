@@ -26,25 +26,25 @@ public class securityconfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/pub/**", "/error/**", "/login/**", "/index").permitAll()
-                .antMatchers("/admin/**", "/cart/**", "/user/**").authenticated()
-                .and()
+                    .antMatchers("/pub/**", "/error/**", "/login/**", "/index").permitAll()
+                    .antMatchers("/admin/**", "/cart/**", "/user/**").authenticated()
+                    .and()
                 .formLogin()
-                // this is the URL of the login page
-                .loginPage("/login/loginForm")
-                // this is the URL where the login page will submit
-                .loginProcessingUrl("/login/loginSubmit")
-                .defaultSuccessUrl("/user/characters")
-                .and()
+                    // this is the URL of the login page
+                    .loginPage("/login/loginForm")
+                    // this is the URL where the login page will submit
+                    .loginProcessingUrl("/login/loginSubmit")
+                    .defaultSuccessUrl("/user/characters")
+                    .and()
                 .logout()
-                .invalidateHttpSession(true)
-                // this is the URL to log the user out
-                .logoutUrl("/login/logout")
-                // the URL that the user goes to after they logout
-                .logoutSuccessUrl("/index")
-                .and()
+                    .invalidateHttpSession(true)
+                    // this is the URL to log the user out
+                    .logoutUrl("/login/logout")
+                    // the URL that the user goes to after they logout
+                    .logoutSuccessUrl("/index")
+                    .and()
                 .exceptionHandling()
-                .accessDeniedPage("/error/404");
+                    .accessDeniedPage("/error/404");
     }
 
     @Bean

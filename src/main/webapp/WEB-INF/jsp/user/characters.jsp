@@ -8,8 +8,11 @@
         <p>${character.name}</p>
     </c:forEach>
 
+    <p>Your email: ${email}</p>
+
     <nav>
-        <a href="/user/createcharacter">Create a new character</a>
+        <a href="/user/create">Create a new character</a>
+        <a href="/login/logout">Log Out</a>
     </nav>
 </div>
 

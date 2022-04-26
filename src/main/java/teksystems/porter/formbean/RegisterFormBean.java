@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
 import teksystems.porter.validation.EmailUnique;
+import teksystems.porter.validation.FieldMatch;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -12,6 +13,7 @@ import javax.validation.constraints.NotBlank;
 @Getter
 @Setter
 @ToString
+@FieldMatch(fields = {"password", "confirmPassword"}, message = "Passwords must match")
 public class RegisterFormBean {
 
     private Integer id;
@@ -25,6 +27,7 @@ public class RegisterFormBean {
     @NotBlank(message = "Password required")
     private String password;
 
+    @NotBlank(message = "Must repeat password")
     private String confirmPassword;
 
 }

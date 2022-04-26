@@ -17,8 +17,6 @@ public class SecurityServices {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentUserName = authentication.getName();
 
-        User user = userDao.findByEmail(currentUserName);
-
-        return user;
+        return userDao.findByEmail(currentUserName);
     }
 }

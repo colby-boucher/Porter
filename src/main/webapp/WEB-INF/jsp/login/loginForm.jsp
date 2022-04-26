@@ -2,6 +2,9 @@
 <jsp:include page="../include/header.jsp" />
 
 <div class="maincontainer">
+
+    <h1 class="title">Porter</h1>
+    <p class="subtitle">An inventory manager for the TTRPG Mythras</p>
     
     <form action="/login/loginSubmit" method="POST">
         <div>
@@ -9,11 +12,14 @@
             <br>
         </div>
         <div>
-            <input type="text" name="password" placeholder="Password">
+            <input type="password" name="password" placeholder="Password">
             <br>
         </div>
         <button type="submit">Submit</button>
     </form>
+    <nav>
+        <a href = "/login/registerForm">Sign Up</a>
+    </nav>
 </div>
 
 
