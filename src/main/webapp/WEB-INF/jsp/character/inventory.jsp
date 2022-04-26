@@ -9,16 +9,19 @@
         <thead>
             <tr>
                 <th>Item</th>
-                <th>Quantity</th>
                 <th>Weight</th>
+                <th>Value</th>
+                <th>Quantity</th>
             </tr>
         </thead>
         <tbody>
         <c:forEach items="${inventory}" var="item">
             <tr>
-                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <td>${item.weight}</td>
+                <td>${item.value}</td>
                 <td>${item.quantity}</td>
-                <td>${item.quantity}</td>
+                <td><a>Subtract 1</a></td>
             </tr>
         </c:forEach>
         </tbody>

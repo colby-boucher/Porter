@@ -25,9 +25,6 @@ public class CharacterItems {
     @JoinColumn(name = "character_id", nullable = false)
     private Character character;
 
-    @Column(name = "quantity", nullable = false)
-    private Integer quantity;
-
     @Column(name ="worn", nullable = false)
     private Boolean worn;
 

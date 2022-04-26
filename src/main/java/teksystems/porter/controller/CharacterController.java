@@ -9,12 +9,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import teksystems.porter.dao.CharacterDao;
 import teksystems.porter.dao.CharactersItemDao;
+import teksystems.porter.dao.InventoryDao;
 import teksystems.porter.dao.UserDao;
 import teksystems.porter.entity.Character;
 import teksystems.porter.entity.CharacterItems;
+import teksystems.porter.entity.InventoryJoin;
 import teksystems.porter.services.SecurityServices;
 
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Controller
@@ -29,6 +32,11 @@ public class CharacterController {
     @Autowired
     private CharactersItemDao charactersItemDao;
 
+
+
+    @Autowired
+    private InventoryDao inventoryDao;
+
     @Autowired
     SecurityServices securityServices = new SecurityServices();
 
@@ -39,11 +47,17 @@ public class CharacterController {
 
         Character character = characterDao.findCharacterById(id);
 
-        List<CharacterItems> inventory = charactersItemDao.findCharacterItemsByCharacterEquals(character);
+        //List<CharacterItems> inventory = charactersItemDao.findCharacterItemsByCharacterEquals(character);
+
+        List<Map<String,Object>> inventory = charactersItemDao.join(id);
+
+
 
         response.addObject("character", character);
 
         response.addObject("inventory", inventory);
+
+        //response.addObject("inventory", inventory);
 
         return response;
     }
