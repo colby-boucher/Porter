@@ -69,7 +69,7 @@ public class CharacterController {
 
         characterDao.delete(character);
 
-        response.setViewName(":redirect/user/characters");
+        response.setViewName("redirect:/user/characters");
 
         return response;
     }
